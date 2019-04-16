@@ -7,10 +7,16 @@ const yellowDiv = document.querySelector(".yellow");
 const blueDiv = document.querySelector(".blue");
 
 //function to toggle green light
+let isLit = false;
 function greenLight() {
-    console.log('clicked green')
-    greenDiv.classList.toggle("green-light")
-  }
+        console.log('clicked green')
+        greenDiv.classList.add("green-light")
+        setTimeout(() => {
+            greenDiv.classList.remove("green-light") 
+        }, 200);
+        console.log('ran green')
+    }
+  
 
 //function to toggle red light
 function redLight() {
