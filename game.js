@@ -6,38 +6,78 @@ const redDiv = document.querySelector(".red");
 const yellowDiv = document.querySelector(".yellow");
 const blueDiv = document.querySelector(".blue");
 
-//function to toggle green light
-let isLit = false;
-function greenLight() {
+//functions to toggle to light color when clicked
+function greenClick() {
         console.log('clicked green')
         greenDiv.classList.add("green-light")
         setTimeout(() => {
             greenDiv.classList.remove("green-light") 
-        }, 200);
-        console.log('ran green')
+        }, 100);
     }
-  
 
-//function to toggle red light
-function redLight() {
+function redClick() {
     console.log('clicked red')
-    redDiv.classList.toggle("red-light");
-  }
+    redDiv.classList.add("red-light")
+    setTimeout(() => {
+        redDiv.classList.remove("red-light") 
+    }, 125);
+}
 
-//function to toggle yellow light
-function yellowLight() {
+function yellowClick() {
     console.log('clicked yellow')
-    yellowDiv.classList.toggle("yellow-light");
-  }
+    yellowDiv.classList.add("yellow-light")
+    setTimeout(() => {
+        yellowDiv.classList.remove("yellow-light") 
+    }, 125);
+}
 
-//function to toggle blue light
-function blueLight() {
+function blueClick() {
     console.log('clicked blue')
-    blueDiv.classList.toggle("blue-light");
-  }
+    blueDiv.classList.add("blue-light")
+    setTimeout(() => {
+        blueDiv.classList.remove("blue-light") 
+    }, 125);
+}
 
 //toggle light class when color divs are clicked
- greenDiv.addEventListener('click', greenLight)
- redDiv.addEventListener('click', redLight)
- yellowDiv.addEventListener('click', yellowLight)
- blueDiv.addEventListener('click', blueLight)
+ greenDiv.addEventListener('click', greenClick)
+ redDiv.addEventListener('click', redClick)
+ yellowDiv.addEventListener('click', yellowClick)
+ blueDiv.addEventListener('click', blueClick)
+
+ //functions to flash lighter color during game
+ function greenFlash() {
+    console.log('flashed green')
+    greenDiv.classList.add("green-light")
+    setTimeout(() => {
+        greenDiv.classList.remove("green-light") 
+    }, 300);
+}
+ function redFlash() {
+    console.log('flashed red')
+    redDiv.classList.add("red-light")
+    setTimeout(() => {
+        redDiv.classList.remove("red-light") 
+    }, 300);
+}
+ function yellowFlash() {
+    console.log('flashed yellow')
+    yellowDiv.classList.add("yellow-light")
+    setTimeout(() => {
+        yellowDiv.classList.remove("yellow-light") 
+    }, 300);
+}
+ function blueFlash() {
+    console.log('flashed blue')
+    blueDiv.classList.add("blue-light")
+    setTimeout(() => {
+        blueDiv.classList.remove("blue-light") 
+    }, 300);
+}
+
+
+//let num = Math.floor((Math.random() * 4) + 1);
+/*
+    switch statement with each case 1 through 4 corresponding with 
+    a colorFlash function
+*/
