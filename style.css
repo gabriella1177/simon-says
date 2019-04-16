@@ -1,10 +1,17 @@
-.col{
-    padding: 50px;
-    border-radius: 30%;
-    height: 180px;
-    width: 30px;
+html body {
+    background-color: rgba(176, 231, 228, 0.836);
+    font-family: 'Jua', sans-serif;
+    color: rgba(45, 58, 92, 0.836)
+}
+html .btn-primary {
+    background: rgba(85, 161, 158, 0.836);
+    color: rgba(45, 58, 92, 0.836);
+    border-color: rgba(67, 129, 127, 0.836)
 }
 
+.col {
+    height: 100px;
+}
 .green{
     background-color: green;
     border: 6px solid darkgreen;
