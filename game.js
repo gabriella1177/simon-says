@@ -85,9 +85,51 @@ reset.addEventListener('click', () => {
     blueFlash();
 })
 
-
-//let num = Math.floor((Math.random() * 4) + 1);
+function randomNumber(num){
+    Math.floor((Math.random() * 4) + 1);
+    return num;
+}
 /*
-    switch statement with each case 1 through 4 corresponding with 
+    run through each case 1 through 4 corresponding with 
     a colorFlash function
 */
+let colorSequence = [];
+function randomColor() {
+    randomNumber(num);
+    if(num === 1){
+        greenFlash();
+    }
+    if(num === 2) {
+        redFlash();
+    } 
+    if (num === 3) {
+        yellowFlash();
+    }
+    if(num === 4) {
+        blueFlash();
+    }
+    colorSequence.push(num);
+}
+
+let gameOver = false;
+// while(!gameOver){
+     //if player clicks 'start' button
+     //randomColor()
+     for (let i = 0; i < colorSequence.length; i++) {
+        if(num === 1){
+            greenFlash();
+        }
+        if(num === 2) {
+            redFlash();
+        } 
+        if (num === 3) {
+            yellowFlash();
+        }
+        if(num === 4) {
+            blueFlash();
+        } 
+     }
+
+       
+
+// }
