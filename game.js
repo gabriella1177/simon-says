@@ -114,22 +114,27 @@ function randomColor() {
 const start = document.querySelector('#start'); //select start button
 let gameOver = false;
 while(!gameOver){
-     //when player clicks 'start' button
+     start.addEventListener('click', () => { //when player clicks 'start' button
      randomColor() //get random color and add it to array
-     for (let i = 0; i < colorSequence.length; i++) { //loop through array
-        if(num === 1){
-            greenFlash();
+        for (let i = 0; i < colorSequence.length; i++) { //loop through array
+            if(num === 1){
+                greenFlash();
+            }
+            if(num === 2) {
+                redFlash();
+            } 
+            if (num === 3) {
+                yellowFlash();
+            }
+            if(num === 4) {
+                blueFlash();
+            } 
         }
-        if(num === 2) {
-            redFlash();
-        } 
-        if (num === 3) {
-            yellowFlash();
-        }
-        if(num === 4) {
-            blueFlash();
-        } 
-     }
-    //if player does not click div === num
-    //gameOver = true
+     })
+     //if player does click where div.value === num
+        //then score increments
+    //if player does not click where div.value === num
+        //then gameOver = true
+        //and an h2 is created that says Game Over!
+
 }
