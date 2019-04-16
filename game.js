@@ -75,6 +75,16 @@ function blueClick() {
     }, 300);
 }
 
+//select reset button
+const reset = document.querySelector('#reset');
+//if reset button is clicked
+reset.addEventListener('click', () => {
+    greenFlash();
+    redFlash();
+    yellowFlash();
+    blueFlash();
+})
+
 
 //let num = Math.floor((Math.random() * 4) + 1);
 /*
