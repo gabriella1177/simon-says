@@ -111,11 +111,12 @@ function randomColor() {
     colorSequence.push(num);
 }
 
+const start = document.querySelector('#start'); //select start button
 let gameOver = false;
-// while(!gameOver){
-     //if player clicks 'start' button
-     //randomColor()
-     for (let i = 0; i < colorSequence.length; i++) {
+while(!gameOver){
+     //when player clicks 'start' button
+     randomColor() //get random color and add it to array
+     for (let i = 0; i < colorSequence.length; i++) { //loop through array
         if(num === 1){
             greenFlash();
         }
@@ -129,7 +130,6 @@ let gameOver = false;
             blueFlash();
         } 
      }
-
-       
-
-// }
+    //if player does not click div === num
+    //gameOver = true
+}
