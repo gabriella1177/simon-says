@@ -1,0 +1,22 @@
+.col{
+    padding: 50px;
+    border-radius: 30%;
+    height: 180px;
+    width: 30px;
+}
+
+.green{
+    background-color: green;
+    border: 6px solid darkgreen;
+}
+.red{
+    background-color: red;
+    border: 6px solid darkred;
+}
+.yellow{
+    background-color: yellow;
+    border: 6px solid goldenrod;
+}
+.blue{
+    background-color:blue;
+    border: 6px solid darkblue;
