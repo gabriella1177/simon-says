@@ -121,20 +121,29 @@ function computerTurn(){
     
 }
 
+//player turn function
+function playerTurn() {
+    for (var i = 0; i < colorSequence.length; ++i) {
+        let colorDiv = document.querySelectorAll('div.col')[i]
+        let playerClick = click.colorDiv;
+       if (playerClick === colorDiv) {
+            //then run score incrementer function
+       } else {
+           //run gameOver function
+       }
+    }
+}
 
-//computer turn function
+
+//score incrementer function
+    //var score value increments
+    //DOM manipulation to change score for player
+
+//game over function
+    //h2 is created that says Game Over!
+
 
 const start = document.querySelector('#start'); //select start button
 start.addEventListener('click', () => { //when player clicks 'start' button
     computerTurn();
 })
-    
-
-
-
-
-    //  if player does click where div.value === num
-    //     then score increments
-    // if player does not click where div.value === num
-    //     then gameOver = true
-    //     and an h2 is created that says Game Over!
