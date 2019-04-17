@@ -6,20 +6,23 @@ const redDiv = document.querySelector(".red");
 const yellowDiv = document.querySelector(".yellow");
 const blueDiv = document.querySelector(".blue");
 
-// //event targets for each div
-// greenDiv.addEventListener('click', (e) => {
-//     console.log(e);
-// })
-// redDiv.addEventListener('click', (e) => {
-//     console.log(e);
-// })
-// yellowDiv.addEventListener('click', (e) => {
-//     console.log(e);
-// })
-// blueDiv.addEventListener('click', (e) => {
-//     console.log(e);
-// })
-
+//function to check clicked color against array color
+let checkColorCounter = 0
+function checkColor(clickedColor){
+    let color = colorSequence[checkColorCounter]
+    if (color === clickedColor) {
+        checkColorCounter++;
+    } else {
+        gameOver();
+    }
+    if(checkColorCounter >= colorSequence.length){
+        clearTimeout(playerTimer)
+        scoreIncrementer();
+        setTimeout(() => {
+            computerTurn();
+        }, 1000);
+    }
+}
 //functions to toggle to light color when clicked
 function greenClick() {
         console.log('clicked green')
@@ -27,6 +30,9 @@ function greenClick() {
         setTimeout(() => {
             greenDiv.classList.remove("green-light") 
         }, 100);
+        if(isPlayersTurn === true) {
+            checkColor(1);
+        }
     }
 
 function redClick() {
@@ -35,6 +41,9 @@ function redClick() {
     setTimeout(() => {
         redDiv.classList.remove("red-light") 
     }, 100);
+    if(isPlayersTurn === true) {
+        checkColor(2);
+    }
 }
 
 function yellowClick() {
@@ -43,6 +52,9 @@ function yellowClick() {
     setTimeout(() => {
         yellowDiv.classList.remove("yellow-light") 
     }, 100);
+    if(isPlayersTurn === true) {
+        checkColor(3);
+    }
 }
 
 function blueClick() {
@@ -51,6 +63,9 @@ function blueClick() {
     setTimeout(() => {
         blueDiv.classList.remove("blue-light") 
     }, 100);
+    if(isPlayersTurn === true) {
+        checkColor(4);
+    }
 }
 
 //toggle light class when color divs are clicked
@@ -60,25 +75,28 @@ function blueClick() {
  blueDiv.addEventListener('click', blueClick)
 
  //functions to flash lighter color during game
- let counter = 0;
+ let nextFlashCounter = 0;
 function nextFlash() {
-    let color = colorSequence[counter];
-    if(color === 1){
-      greenFlash();
+    let color = colorSequence[nextFlashCounter];
+    nextFlashCounter++;
+    setTimeout(() => {
+        if(color === 1){
+            greenFlash();
+          }
+          if(color === 2) {
+            redFlash();
+          } 
+          if (color === 3) {
+            yellowFlash();
+          }
+          if(color === 4) {
+            blueFlash();
+          }  
+    }, 100);
+    if(nextFlashCounter >= colorSequence.length) {
+        playerTurn();
     }
-    if(color === 2) {
-      redFlash();
-    } 
-    if (color === 3) {
-      yellowFlash();
-    }
-    if(color === 4) {
-      blueFlash();
-    }
-    console.log(counter);
-    counter++;
 }
-
 
 function greenFlash() {
     greenDiv.classList.add("green-light")
@@ -107,7 +125,6 @@ function greenFlash() {
     
 }
  function blueFlash() {
-    
     blueDiv.classList.add("blue-light")
     setTimeout(() => {
         blueDiv.classList.remove("blue-light");
@@ -129,23 +146,22 @@ function randomColor() {
 
 //computer turn function
 function computerTurn(){
+    isPlayersTurn = false;
+    console.log('test')
     randomColor(); //get random color and add it to array
-    console.log(colorSequence);
+    nextFlashCounter = 0;
     nextFlash();
     }
 
-//player turn function (!!find a way to add timer)
-function playerTurn(e) {
-    console.log(e.target)
-    // for (var i = 0; i < colorSequence.length; ++i) {
-    //     let colorDiv = document.querySelectorAll('div.col')[i]
-    //     let playerClick = click.colorDiv; //event target
-    //    if (playerClick === colorDiv) {
-    //         scoreIncrementer();
-    //    } else {
-    //        //run gameOver function
-    //    }
-    // }
+//player turn function 
+let isPlayersTurn = false;
+let playerTimer;
+function playerTurn() {
+    checkColorCounter = 0;
+    isPlayersTurn = true;
+    playerTimer = setTimeout(() => {
+       gameOver();
+   }, 3000);
 }
 
 //select span of score and set the value to a variable
@@ -163,39 +179,23 @@ function clearArray(array) {
       array.pop();
     }
   }
-//select reset button
-const reset = document.querySelector('#reset');
-//if reset button is clicked
-reset.addEventListener('click', () => {
-    greenFlash();
-    redFlash();
-    yellowFlash();
-    blueFlash();
+
+function reset() {
     score = 0;
     span.innerHTML = score
     clearArray(colorSequence);
     h2.style.display = "none";
-})
-
-const start = document.querySelector('#start'); //select start button
-start.addEventListener('click', (e) => { //when player clicks 'start' button
-    computerTurn();
-});
-
-let test = document.querySelector('#test');
-test.addEventListener('click', (e) => {
-    computerTurn();
-});
-
-let h2 = document.querySelector('#gameover')
-function gameOver() {
-    //h2 is visible that says Game Over!
-    h2.style.display = "block";
 }
 
-// queryselectorall
-// loop
-// addeventlistener to each
-// onclick
-// e.target
-// start.addEventListener('click', computerTurn)
+const start = document.querySelector('#start'); //select start button
+start.addEventListener('click', () => { //when player clicks 'start' button
+    reset();
+    computerTurn(); 
+});
+
+let h2 = document.querySelector('.h2');
+function gameOver() {
+    h2.style.display = "block"; //h2 is visible that says Game Over!
+    //!!cancel game somehow
+
+}
