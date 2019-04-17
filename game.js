@@ -83,10 +83,11 @@ reset.addEventListener('click', () => {
     redFlash();
     yellowFlash();
     blueFlash();
+    //modify span back to 0
 })
 
-function randomNumber(num){
-    Math.floor((Math.random() * 4) + 1);
+function randomNumber(){
+    let num = Math.floor((Math.random() * 4) + 1);
     return num;
 }
 /*
@@ -95,46 +96,46 @@ function randomNumber(num){
 */
 let colorSequence = [];
 function randomColor() {
-    randomNumber(num);
-    if(num === 1){
-        greenFlash();
-    }
-    if(num === 2) {
-        redFlash();
-    } 
-    if (num === 3) {
-        yellowFlash();
-    }
-    if(num === 4) {
-        blueFlash();
-    }
+    let num = randomNumber();
     colorSequence.push(num);
 }
 
 const start = document.querySelector('#start'); //select start button
 let gameOver = false;
-while(!gameOver){
-     start.addEventListener('click', () => { //when player clicks 'start' button
-     randomColor() //get random color and add it to array
-        for (let i = 0; i < colorSequence.length; i++) { //loop through array
-            if(num === 1){
-                greenFlash();
+let computerTurn = true;
+start.addEventListener('click', () => { //when player clicks 'start' button
+    while(!gameOver){
+        if(computerTurn === true) { //inside while loop if flashing through array
+            randomColor(); //get random color and add it to array
+            console.log(colorSequence);
+            for (let i = 0; i < colorSequence.length; i++) { //loop through array
+                if(colorSequence[i] === 1){
+                    greenFlash();
+                }
+                if(colorSequence[i] === 2) {
+                    redFlash();
+                } 
+                if (colorSequence[i] === 3) {
+                    yellowFlash();
+                }
+                if(colorSequence[i] === 4) {
+                    blueFlash();
+                }
             }
-            if(num === 2) {
-                redFlash();
-            } 
-            if (num === 3) {
-                yellowFlash();
-            }
-            if(num === 4) {
-                blueFlash();
-            } 
+            computerTurn = false; 
         }
-     })
-     //if player does click where div.value === num
-        //then score increments
-    //if player does not click where div.value === num
-        //then gameOver = true
-        //and an h2 is created that says Game Over!
+        else { //inside while loop if it's players turn with a timer
+            gameOver = true;
+        }
+    }
+})
+    
 
-}
+
+
+
+    //  if player does click where div.value === num
+    //     then score increments
+    // if player does not click where div.value === num
+    //     then gameOver = true
+    //     and an h2 is created that says Game Over!
