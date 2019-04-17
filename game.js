@@ -16,6 +16,7 @@ function checkColor(clickedColor){
         gameOver();
     }
     if(checkColorCounter >= colorSequence.length){
+        console.log(playerTimer)
         clearTimeout(playerTimer)
         scoreIncrementer();
         setTimeout(() => {
@@ -79,22 +80,23 @@ function blueClick() {
 function nextFlash() {
     let color = colorSequence[nextFlashCounter];
     nextFlashCounter++;
-    setTimeout(() => {
-        if(color === 1){
-            greenFlash();
-          }
-          if(color === 2) {
-            redFlash();
-          } 
-          if (color === 3) {
-            yellowFlash();
-          }
-          if(color === 4) {
-            blueFlash();
-          }  
-    }, 100);
-    if(nextFlashCounter >= colorSequence.length) {
+    if(nextFlashCounter > colorSequence.length) {
         playerTurn();
+    } else {
+        setTimeout(() => {
+            if(color === 1){
+                greenFlash();
+            }
+            if(color === 2) {
+                redFlash();
+            } 
+            if (color === 3) {
+                yellowFlash();
+            }
+            if(color === 4) {
+                blueFlash();
+            }  
+        }, 100);
     }
 }
 
@@ -161,7 +163,8 @@ function playerTurn() {
     isPlayersTurn = true;
     playerTimer = setTimeout(() => {
        gameOver();
-   }, 3000);
+    }, 3000 + score * 100);
+   console.log(playerTimer)
 }
 
 //select span of score and set the value to a variable
@@ -199,3 +202,5 @@ function gameOver() {
     //!!cancel game somehow
 
 }
+
+//add more buttons for medium and hard mode
