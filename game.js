@@ -100,34 +100,33 @@ function randomColor() {
     colorSequence.push(num);
 }
 
-const start = document.querySelector('#start'); //select start button
-let gameOver = false;
-let computerTurn = true;
-start.addEventListener('click', () => { //when player clicks 'start' button
-    while(!gameOver){
-        if(computerTurn === true) { //inside while loop if flashing through array
-            randomColor(); //get random color and add it to array
-            console.log(colorSequence);
-            for (let i = 0; i < colorSequence.length; i++) { //loop through array
-                if(colorSequence[i] === 1){
-                    greenFlash();
-                }
-                if(colorSequence[i] === 2) {
-                    redFlash();
-                } 
-                if (colorSequence[i] === 3) {
-                    yellowFlash();
-                }
-                if(colorSequence[i] === 4) {
-                    blueFlash();
-                }
+//computer turn function
+function computerTurn(){
+    randomColor(); //get random color and add it to array
+    console.log(colorSequence);
+        for (let i = 0; i < colorSequence.length; i++) { //loop through array
+            if(colorSequence[i] === 1){
+                greenFlash();
             }
-            computerTurn = false; 
-        }
-        else { //inside while loop if it's players turn with a timer
-            gameOver = true;
-        }
+            if(colorSequence[i] === 2) {
+                redFlash();
+            } 
+            if (colorSequence[i] === 3) {
+                yellowFlash();
+            }
+            if(colorSequence[i] === 4) {
+                blueFlash();
+            }
     }
+    
+}
+
+
+//computer turn function
+
+const start = document.querySelector('#start'); //select start button
+start.addEventListener('click', () => { //when player clicks 'start' button
+    computerTurn();
 })
     
 
