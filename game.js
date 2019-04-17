@@ -75,17 +75,6 @@ function blueClick() {
     }, 300);
 }
 
-//select reset button
-const reset = document.querySelector('#reset');
-//if reset button is clicked
-reset.addEventListener('click', () => {
-    greenFlash();
-    redFlash();
-    yellowFlash();
-    blueFlash();
-    //modify span back to 0
-})
-
 function randomNumber(){
     let num = Math.floor((Math.random() * 4) + 1);
     return num;
@@ -121,25 +110,45 @@ function computerTurn(){
     
 }
 
-//player turn function
+//player turn function (!!find a way to add timer)
 function playerTurn() {
     for (var i = 0; i < colorSequence.length; ++i) {
         let colorDiv = document.querySelectorAll('div.col')[i]
-        let playerClick = click.colorDiv;
+        let playerClick = click.colorDiv; //event target
        if (playerClick === colorDiv) {
-            //then run score incrementer function
+            scoreIncrementer();
        } else {
            //run gameOver function
        }
     }
 }
 
-
+//select span of score and set the value to a variable
+let span = document.querySelector('span');
+let score = span.innerHTML;
 //score incrementer function
-    //var score value increments
-    //DOM manipulation to change score for player
+function scoreIncrementer() {
+    //var score value increments and DOM manipulation to change score for player
+    score++;
+    span.innerHTML = score
+}
+  
+//select reset button
+const reset = document.querySelector('#reset');
+//if reset button is clicked
+reset.addEventListener('click', () => {
+    greenFlash();
+    redFlash();
+    yellowFlash();
+    blueFlash();
+    score = 0;
+    span.innerHTML = score
+})
 
 //game over function
+function gameOver {
+    
+}
     //h2 is created that says Game Over!
 
 
