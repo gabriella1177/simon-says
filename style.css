@@ -3,6 +3,11 @@ html body {
     font-family: 'Jua', sans-serif;
     color: rgba(45, 58, 92, 0.836)
 }
+
+html body  h2 {
+    color: red;
+    display: none;
+}
 html .btn-primary {
     background: rgba(85, 161, 158, 0.836);
     color: rgba(45, 58, 92, 0.836);
@@ -10,40 +15,45 @@ html .btn-primary {
 }
 
 html .container{
-    width: 300px;
+    width: 325px;
 }
 
 .col {
-    height: 100px;
+    height: 150px;
 }
 .green{
-    background-color: green;
+    background-image: radial-gradient( rgb(87, 131, 87), rgb(23, 100, 23),darkgreen);
     border: 6px solid darkgreen;
 }
 .red{
-    background-color: red;
+    background-image: radial-gradient(rgb(209, 2, 2), rgb(151, 7, 7), darkred);
     border: 6px solid darkred;
 }
 .yellow{
-    background-color: yellow;
+    background-image: radial-gradient(rgb(236, 213, 77), rgb(206, 172, 20), goldenrod);
     border: 6px solid goldenrod;
 }
 .blue{
-    background-color:blue;
+    background-image: radial-gradient(rgb(41, 23, 199), rgb(21, 9, 133), darkblue);
     border: 6px solid darkblue;
 }
 
+html .primary {
+    border-radius: 50%;
+}
 .green-light{
-    background-color: rgb(86, 158, 86);
+    background-image: radial-gradient( rgb(143, 201, 143), rgb(35, 155, 35),rgb(3, 151, 3));
+    border: 6px solid rgb(3, 151, 3);
 }
-.red-light {
-    background-color: rgb(245, 101, 101);
+.red-light{
+    background-image: radial-gradient(rgb(231, 75, 75), rgb(199, 25, 25), rgb(165, 48, 48));
+    border: 6px solid rgb(165, 48, 48);
 }
-
 .yellow-light{
-    background-color: rgb(245, 245, 158);
+    background-image: radial-gradient(rgb(236, 224, 152), rgb(207, 188, 104), rgb(206, 184, 89));
+    border: 6px solid rgb(206, 184, 89);
 }
-
 .blue-light{
-    background-color:rgb(85, 85, 247);
+    background-image: radial-gradient(rgb(90, 73, 240), rgb(48, 35, 161), rgb(21, 9, 133));
+    border: 6px solid rgb(29, 15, 156);
 }

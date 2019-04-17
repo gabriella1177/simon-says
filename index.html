@@ -14,21 +14,42 @@
     <title>Simon Says!</title>
 </head>
 <body>
-    <header>
+    <header id="header">
         <h1>Let's Play Simon Says!</h1>
+        <h2 id='gameover'>Game Over!</h2>
     </header>
 
 <h3>Score: <span>0</span></h3> 
 
-<button class="btn-primary">Instructions</button>
+<button class="btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Instructions</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">How to Play Simon Says</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Test your memory with this fun game. The computer is Simon and your job is to do what Simon Says! First, watch the colored buttons light up.
+              Then, repeat the exact sequence before the time runs out. The sequence gets longer every turn so your challenge is to keep up. Good luck!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 <div class="container">
     <div class="row">
-      <div value="1" class="rounded p-3 m-1 green col"></div>
-      <div value="2" class="rounded m-1 red col"></div>
+      <div value="1" class="p-3 m-1 green col primary"></div>
+      <div value="2" class="m-1 red col primary"></div>
       <div class="rounded w-100"></div>
-      <div value="3" class="rounded m-1 yellow col"></div>
-      <div value="4" class="rounded m-1 blue col"></div>
+      <div value="3" class="m-1 yellow col primary"></div>
+      <div value="4" class="m-1 blue col primary"></div>
     </div>
   </div>
 

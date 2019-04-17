@@ -62,7 +62,7 @@ function blueClick() {
  //functions to flash lighter color during game
  let counter = 0;
 function nextFlash() {
-  let color = colorSequence[counter]
+    let color = colorSequence[counter];
     if(color === 1){
       greenFlash();
     }
@@ -75,41 +75,45 @@ function nextFlash() {
     if(color === 4) {
       blueFlash();
     }
-
+    console.log(counter);
     counter++;
 }
 
+
 function greenFlash() {
-    console.log('flashed green')
     greenDiv.classList.add("green-light")
     setTimeout(() => {
-        greenDiv.classList.remove("green-light") 
+        greenDiv.classList.remove("green-light");
+        nextFlash();
     }, 300);
-    nextFlash();
+    console.log('flashed green')
 }
  function redFlash() {
-    console.log('flashed red')
     redDiv.classList.add("red-light")
     setTimeout(() => {
-        redDiv.classList.remove("red-light") 
+        redDiv.classList.remove("red-light");
+        nextFlash();
     }, 300);
-    nextFlash();
+    console.log('flashed red')
 }
  function yellowFlash() {
-    console.log('flashed yellow')
+   
     yellowDiv.classList.add("yellow-light")
     setTimeout(() => {
-        yellowDiv.classList.remove("yellow-light") 
+        yellowDiv.classList.remove("yellow-light");
+        nextFlash();
+        console.log('flashed yellow')
     }, 300);
-    nextFlash();
+    
 }
  function blueFlash() {
-    console.log('flashed blue')
+    
     blueDiv.classList.add("blue-light")
     setTimeout(() => {
-        blueDiv.classList.remove("blue-light") 
+        blueDiv.classList.remove("blue-light");
+        nextFlash();
     }, 300);
-    nextFlash();
+    console.log('flashed blue')
 }
 
 function randomNumber(){
@@ -127,22 +131,7 @@ function randomColor() {
 function computerTurn(){
     randomColor(); //get random color and add it to array
     console.log(colorSequence);
-            for (let i = 0; i < 2; i++) { //loop through array
-                console.log(colorSequence[i]);
-                if(colorSequence[i] === 1){
-                    greenFlash();
-                }
-                if(colorSequence[i] === 2) {
-                    redFlash();
-                } 
-                if (colorSequence[i] === 3) {
-                    yellowFlash();
-                }
-                if(colorSequence[i] === 4) {
-                    blueFlash();
-                }
-                console.log('ran loop')
-        } 
+    nextFlash();
     }
 
 //player turn function (!!find a way to add timer)
@@ -168,7 +157,12 @@ function scoreIncrementer() {
     score++;
     span.innerHTML = score
 }
-  
+ 
+function clearArray(array) {
+    while (array.length) {
+      array.pop();
+    }
+  }
 //select reset button
 const reset = document.querySelector('#reset');
 //if reset button is clicked
@@ -179,13 +173,13 @@ reset.addEventListener('click', () => {
     blueFlash();
     score = 0;
     span.innerHTML = score
+    clearArray(colorSequence);
+    h2.style.display = "none";
 })
 
 const start = document.querySelector('#start'); //select start button
 start.addEventListener('click', (e) => { //when player clicks 'start' button
     computerTurn();
-    playerTurn(e)
-    // something(e)
 });
 
 let test = document.querySelector('#test');
@@ -193,11 +187,10 @@ test.addEventListener('click', (e) => {
     computerTurn();
 });
 
+let h2 = document.querySelector('#gameover')
 function gameOver() {
-    //h2 is created that says Game Over!
-    let newH2 = document.createElement("h2");
-    header.append(newH2);
-    newH2.innerText = 'Game Over!';
+    //h2 is visible that says Game Over!
+    h2.style.display = "block";
 }
 
 // queryselectorall
