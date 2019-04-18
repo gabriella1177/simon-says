@@ -14,14 +14,33 @@
     <title>Simon Says!</title>
 </head>
 <body>
-    <header id="header">
-        <h1>Let's Play Simon Says!</h1>
-        <h2 class='h2'>Game Over!</h2>
+    <header class="mt-2 container" id="header">
+        <div class="justify-content-center row">
+            <h1>Let's Play Simon Says!</h1>
+        </div>
+        <div class="row">
+            <h2 class='h2'>Game Over!</h2>
+        </div>
     </header>
 
 <h3>Score: <span>0</span></h3> 
 
-<button class="btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Instructions</button>
+<div id="buttons" class="container">
+    <div class="row">
+      <div value="1" class="p-3 m-1 green col primary"></div>
+      <div value="2" class="m-1 red col primary"></div>
+      <div class="rounded w-100"></div>
+      <div value="3" class="m-1 yellow col primary"></div>
+      <div value="4" class="m-1 blue col primary"></div>
+    </div>
+  </div>
+
+<footer class="container" id="footer">
+    <div class="row justify-content-center m-5">
+        <button id='start' class="btn-primary btn-lg mr-3">Start</button>
+        <button class="btn-primary btn-md rounded" data-toggle="modal" data-target="#exampleModalCenter">Instructions</button>
+    </div>
+</footer>
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -42,20 +61,5 @@
           </div>
         </div>
       </div>
-
-<div class="container">
-    <div class="row">
-      <div value="1" class="p-3 m-1 green col primary"></div>
-      <div value="2" class="m-1 red col primary"></div>
-      <div class="rounded w-100"></div>
-      <div value="3" class="m-1 yellow col primary"></div>
-      <div value="4" class="m-1 blue col primary"></div>
-    </div>
-  </div>
-
-<footer>
-    <button id='start' class="btn-primary">Start</button>
-</footer>
-
 </body>
 </html>
