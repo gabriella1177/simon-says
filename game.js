@@ -116,7 +116,7 @@ function nextFlash() {
             if(color === 4) {
                 blueFlash();
             }  
-        }, 100);
+        }, 300);
     }
 }
 
@@ -130,7 +130,7 @@ function greenFlash() {
     console.log('flashed green')
 }
  function redFlash() {
-     redAudio.play();
+    redAudio.play();
     redDiv.classList.add("red-light")
     setTimeout(() => {
         redDiv.classList.remove("red-light");
@@ -139,7 +139,7 @@ function greenFlash() {
     console.log('flashed red')
 }
  function yellowFlash() {
-   yellowAudio.play();
+    yellowAudio.play();
     yellowDiv.classList.add("yellow-light")
     setTimeout(() => {
         yellowDiv.classList.remove("yellow-light");
@@ -149,7 +149,7 @@ function greenFlash() {
     
 }
  function blueFlash() {
-     blueAudio.play();
+    blueAudio.play();
     blueDiv.classList.add("blue-light")
     setTimeout(() => {
         blueDiv.classList.remove("blue-light");
@@ -186,7 +186,7 @@ function playerTurn() {
     isPlayersTurn = true;
     playerTimer = setTimeout(() => {
        gameOver();
-    }, 3000 + score * 100);
+    }, 3000 + score * 300);
    console.log(playerTimer)
 }
 
@@ -222,7 +222,7 @@ start.addEventListener('click', () => { //when player clicks 'start' button
 let h2 = document.querySelector('.h2');
 function gameOver() {
     h2.style.display = "block"; //h2 is visible that says Game Over!
-    //!!cancel game somehow
+    reset();
 
 }
 
