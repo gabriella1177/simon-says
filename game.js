@@ -1,11 +1,17 @@
 console.log('connected')
 //define local storage
 let highScoreSpan = document.querySelector('#highScoreSpan');
-let highScore = highScoreSpan.innerHTML;
-if (highScoreSpan.innerhtml == 0) {
+let highScore = window.localStorage.getItem('newHighscore');
+
+// get localstorage highscore
+// if highscore exists
+// set innerhtml with it
+// otherwise, highscore = 0
+//
+if (highScore) {
     console.log('make storage')
-    window.localStorage.setItem('newHighScore','gameScoreSpan.innerHTML')
-  }
+    highScoreSpan.innerHTML = highScore
+}
 //select colored buttons
 const greenDiv = document.querySelector(".green");
 const redDiv = document.querySelector(".red");
@@ -225,11 +231,13 @@ start.addEventListener('click', () => { //when player clicks 'start' button
 });
 
 function gameOver() {
-    alert("Game Over! Try again.");
+    // alert("Game Over! Try again.");
+    $("#gameover-alert").alert();
     if(highScore < score){
-        alert("New High Score!");
+        // alert("New High Score!");
+        $("#highscore-alert").alert();
         highScoreSpan.innerHTML = score;
-        window.localStorage.getItem('newHighscore');
+        window.localStorage.setItem('newHighScore',gameScoreSpan.innerHTML)
     }
     reset();
 
