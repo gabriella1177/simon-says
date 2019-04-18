@@ -1,5 +1,11 @@
 console.log('connected')
-
+//define local storage
+let highScoreSpan = document.querySelector('#highScoreSpan');
+let highScore = highScoreSpan.innerHTML;
+if (highScoreSpan.innerhtml == 0) {
+    console.log('make storage')
+    window.localStorage.setItem('newHighScore','gameScoreSpan.innerHTML')
+  }
 //select colored buttons
 const greenDiv = document.querySelector(".green");
 const redDiv = document.querySelector(".red");
@@ -186,13 +192,12 @@ function playerTurn() {
     isPlayersTurn = true;
     playerTimer = setTimeout(() => {
        gameOver();
-    }, 3000 + score * 300);
+    }, 3000 + score * 200);
    console.log(playerTimer)
 }
 
 //select span of score and set the value to a variable
 let gameScoreSpan = document.querySelector('#gameScoreSpan');
-let highScoreSpan = document.querySelector('#gameScoreSpan');
 let score = gameScoreSpan.innerHTML;
 //score incrementer function
 function scoreIncrementer() {
@@ -219,9 +224,13 @@ start.addEventListener('click', () => { //when player clicks 'start' button
     computerTurn(); 
 });
 
-let h2 = document.querySelector('.h2');
 function gameOver() {
-    alert("Game Over! Try again.")
+    alert("Game Over! Try again.");
+    if(highScore < score){
+        alert("New High Score!");
+        highScoreSpan.innerHTML = score;
+        window.localStorage.getItem('newHighscore');
+    }
     reset();
 
 }
