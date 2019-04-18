@@ -191,13 +191,14 @@ function playerTurn() {
 }
 
 //select span of score and set the value to a variable
-let span = document.querySelector('span');
-let score = span.innerHTML;
+let gameScoreSpan = document.querySelector('#gameScoreSpan');
+let highScoreSpan = document.querySelector('#gameScoreSpan');
+let score = gameScoreSpan.innerHTML;
 //score incrementer function
 function scoreIncrementer() {
     //var score value increments and DOM manipulation to change score for player
     score++;
-    span.innerHTML = score
+    gameScoreSpan.innerHTML = score
 }
  
 function clearArray(array) {
@@ -208,9 +209,8 @@ function clearArray(array) {
 
 function reset() {
     score = 0;
-    span.innerHTML = score
+    gameScoreSpan.innerHTML = score
     clearArray(colorSequence);
-    h2.style.display = "none";
 }
 
 const start = document.querySelector('#start'); //select start button
@@ -221,9 +221,7 @@ start.addEventListener('click', () => { //when player clicks 'start' button
 
 let h2 = document.querySelector('.h2');
 function gameOver() {
-    h2.style.display = "block"; //h2 is visible that says Game Over!
+    alert("Game Over! Try again.")
     reset();
 
 }
-
-//add more buttons for medium and hard mode

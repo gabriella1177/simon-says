@@ -18,18 +18,16 @@
         <div class="justify-content-center row">
             <h1>Let's Play Simon Says!</h1>
         </div>
-        <div class="row">
-            <h2 class='h2'>Game Over!</h2>
+        <div class="row justify-content-center"></div>
+        <h3>High Score: <span id="highScoreSpan">0</span></h3>
+        </div> 
+        <div class="row justify-content-center">
+                <h3>Score: <span id="gameScoreSpan">0</span></h3>
         </div>
     </header>
 
     <div class="container">
-        <div class="row justify-content-center"></div>
-            <h3>Score: <span>0</span></h3>
-        </div> 
-        <div class="row justify-content-center">
-            <h3>High Score:<span>0</span></h3>
-        </div>
+       
     </div>
 
 <div id="buttons" class="container">
@@ -42,14 +40,14 @@
     </div>
   </div>
 
-<footer class="container" id="footer">
+<section class="container" id="footer">
     <div class="row justify-content-center m-5">
         <button id='start' class="btn-primary btn-lg mr-3">Start</button>
         <button class="btn-primary btn-md rounded" data-toggle="modal" data-target="#exampleModalCenter">Instructions</button>
     </div>
-</footer>
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+</section>
+<!-- Modal Starts -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -68,5 +66,9 @@
           </div>
         </div>
       </div>
+<!-- Modal Ends -->
+<footer class="signature text-center">
+    Made by <a href="#">Gabriella De Francesco</a>
+</footer>
 </body>
 </html>
