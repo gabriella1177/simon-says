@@ -41,21 +41,36 @@ var blueAudio = new Audio();
 blueAudio.src = "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3";
 
 
+//toggle sound button
+let muteOn = false;
+const mute = document.getElementById('toggleSound');
+mute.addEventListener("click", () => {
+    mute.classList.toggle('active');
+    if(mute.classList.contains('active') === true) {
+        muteOn = true;
+    } else {
+        muteOn = false;
+    }
+})
 //functions to toggle to light color when clicked
 function greenClick() {
+    if (muteOn === false) {
         greenAudio.play();
-        console.log('clicked green')
-        greenDiv.classList.add("green-light")
-        setTimeout(() => {
-            greenDiv.classList.remove("green-light") 
-        }, 100);
-        if(isPlayersTurn === true) {
-            checkColor(1);
-        }
     }
+    console.log('clicked green')
+    greenDiv.classList.add("green-light")
+    setTimeout(() => {
+        greenDiv.classList.remove("green-light") 
+    }, 100);
+    if(isPlayersTurn === true) {
+            checkColor(1);
+    }
+}
 
 function redClick() {
-    redAudio.play();
+    if(muteOn === false){
+        redAudio.play();
+    }
     console.log('clicked red')
     redDiv.classList.add("red-light")
     setTimeout(() => {
@@ -68,7 +83,9 @@ function redClick() {
 
 function yellowClick() {
     console.log('clicked yellow')
-    yellowAudio.play();
+    if(muteOn === false){
+        yellowAudio.play();
+    }
     yellowDiv.classList.add("yellow-light")
     setTimeout(() => {
         yellowDiv.classList.remove("yellow-light") 
@@ -79,7 +96,9 @@ function yellowClick() {
 }
 
 function blueClick() {
-    blueAudio.play();
+    if(muteOn === false) {
+        blueAudio.play();
+    }
     console.log('clicked blue')
     blueDiv.classList.add("blue-light")
     setTimeout(() => {
@@ -122,7 +141,9 @@ function nextFlash() {
 }
 
 function greenFlash() {
-    greenAudio.play();
+    if (muteOn === false) {
+        greenAudio.play();
+    }
     greenDiv.classList.add("green-light")
     setTimeout(() => {
         greenDiv.classList.remove("green-light");
@@ -131,7 +152,9 @@ function greenFlash() {
     console.log('flashed green')
 }
  function redFlash() {
-    redAudio.play();
+    if(muteOn === false){
+        redAudio.play();
+    }
     redDiv.classList.add("red-light")
     setTimeout(() => {
         redDiv.classList.remove("red-light");
@@ -140,7 +163,9 @@ function greenFlash() {
     console.log('flashed red')
 }
  function yellowFlash() {
-    yellowAudio.play();
+    if(muteOn === false){
+        yellowAudio.play();
+    }
     yellowDiv.classList.add("yellow-light")
     setTimeout(() => {
         yellowDiv.classList.remove("yellow-light");
@@ -150,7 +175,9 @@ function greenFlash() {
     
 }
  function blueFlash() {
-    blueAudio.play();
+    if(muteOn === false) {
+        blueAudio.play();
+    }
     blueDiv.classList.add("blue-light")
     setTimeout(() => {
         blueDiv.classList.remove("blue-light");

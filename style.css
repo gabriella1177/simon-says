@@ -5,7 +5,7 @@ html body {
 }
 
 html body header h1 {
-    font-size: 70%;
+    font-size: 3.5em;
 }
 html .btn-primary {
     background: rgba(85, 161, 158, 0.836);
