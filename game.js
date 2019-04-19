@@ -187,7 +187,7 @@ function playerTurn() {
     isPlayersTurn = true;
     playerTimer = setTimeout(() => {
        gameOver();
-    }, 3000 + score * 200);
+    }, 3000 + score * 300);
    console.log(playerTimer)
 }
 
@@ -233,6 +233,6 @@ function gameOver() {
     }
     setTimeout(() => {
         reset();
-    }, 3000);
+    }, 4000);
 
 }
