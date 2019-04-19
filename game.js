@@ -226,6 +226,7 @@ const highScoreAlert = document.getElementById('highscore-alert');
 let highScoreSpan = document.querySelector('#highScoreSpan');
 function gameOver() {
     if(highScoreSpan.innerHTML < score){
+        gameOverAlert.style.display = "block";
         highScoreAlert.style.display = "block";
         highScoreSpan.innerHTML = score;
     } else {
