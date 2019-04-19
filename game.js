@@ -1,17 +1,5 @@
 console.log('connected')
-//define local storage
-let highScoreSpan = document.querySelector('#highScoreSpan');
-let highScore = window.localStorage.getItem('newHighscore');
 
-// get localstorage highscore
-// if highscore exists
-// set innerhtml with it
-// otherwise, highscore = 0
-//
-if (highScore) {
-    console.log('make storage')
-    highScoreSpan.innerHTML = highScore
-}
 //select colored buttons
 const greenDiv = document.querySelector(".green");
 const redDiv = document.querySelector(".red");
@@ -32,6 +20,7 @@ function checkColor(clickedColor){
         clearTimeout(playerTimer)
         scoreIncrementer();
         setTimeout(() => {
+            console.log('checkColor timer');
             computerTurn();
         }, 1000);
     }
@@ -222,6 +211,8 @@ function reset() {
     score = 0;
     gameScoreSpan.innerHTML = score
     clearArray(colorSequence);
+    highScoreAlert.style.display = "none";
+    gameOverAlert.style.display = "none";
 }
 
 const start = document.querySelector('#start'); //select start button
@@ -230,15 +221,18 @@ start.addEventListener('click', () => { //when player clicks 'start' button
     computerTurn(); 
 });
 
+const gameOverAlert = document.getElementById('gameover-alert');
+const highScoreAlert = document.getElementById('highscore-alert');
+let highScoreSpan = document.querySelector('#highScoreSpan');
 function gameOver() {
-    // alert("Game Over! Try again.");
-    $("#gameover-alert").alert();
-    if(highScore < score){
-        // alert("New High Score!");
-        $("#highscore-alert").alert();
+    if(highScoreSpan.innerHTML < score){
+        highScoreAlert.style.display = "block";
         highScoreSpan.innerHTML = score;
-        window.localStorage.setItem('newHighScore',gameScoreSpan.innerHTML)
+    } else {
+        gameOverAlert.style.display = "block";
     }
-    reset();
+    setTimeout(() => {
+        reset();
+    }, 3000);
 
 }
