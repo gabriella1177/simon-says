@@ -15,7 +15,6 @@ No pre-reqs to get started (links to Bootstrap, jQuery, Popper and Google Fonts 
 * [Bootstrap](https://getbootstrap.com/) - open-source toolkit for HTML/CSS/JS
 * [jQuery](http://jquery.com/) - JS library
 * [Popper](https://popper.js.org/) - JS library
-* [GoogleFonts] (https://fonts.google.com/)
 
 ## Approach
 
